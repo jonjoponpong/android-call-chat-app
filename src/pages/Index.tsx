@@ -44,7 +44,7 @@ export default function Index() {
     full_name: 'Ваше Имя',
     email: 'user@example.com',
     phone: '+7 (999) 123-45-67',
-    bio: 'Привет! Я использую ConnectApp',
+    bio: 'Привет! Я использую СпецСвязь',
     status: 'online',
   });
 
@@ -120,7 +120,7 @@ export default function Index() {
     <div className="h-screen bg-background flex flex-col max-w-md mx-auto shadow-2xl">
       <div className="bg-gradient-to-r from-primary to-secondary p-4 text-white shadow-lg">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-bold">ConnectApp</h1>
+          <h1 className="text-2xl font-bold">СпецСвязь</h1>
           <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
             <Icon name="Settings" size={24} />
           </Button>
