@@ -125,11 +125,9 @@ export default function Index() {
       <div className="bg-gradient-to-r from-primary to-secondary p-4 text-white shadow-lg">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <img 
-              src="https://cdn.poehali.dev/projects/795edbcb-f9ba-4b65-a66c-842c8382c6cd/files/628b04e1-5982-4426-9126-bd7e556b5801.jpg" 
-              alt="СпецСвязь"
-              className="h-10 w-10 object-contain"
-            />
+            <div className="h-10 w-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-lg">
+              <Icon name="Shield" size={24} className="text-white" />
+            </div>
             <h1 className="text-2xl font-bold">СпецСвязь</h1>
           </div>
           <div className="flex items-center gap-2">
