@@ -3,6 +3,13 @@ import os
 from typing import Dict, Any
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import hashlib
+
+def generate_user_id(phone: str) -> str:
+    '''Generate unique user ID from phone number using SHA256 hash'''
+    phone_clean = ''.join(filter(str.isdigit, phone))
+    hash_obj = hashlib.sha256(phone_clean.encode('utf-8'))
+    return hash_obj.hexdigest()[:16]
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
@@ -33,13 +40,33 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     try:
         if method == 'GET':
-            # Get user profile (default user with id=1 for demo)
+            # Get user profile by ID or phone
             query_params = event.get('queryStringParameters', {})
-            user_id = query_params.get('id', '1')
+            user_id = query_params.get('id')
+            phone = query_params.get('phone')
             
-            cursor.execute(
-                f"SELECT id, username, full_name, email, phone, bio, avatar_url, status, last_seen FROM users WHERE id = {user_id}"
-            )
+            if phone:
+                # Generate unique ID from phone
+                unique_id = generate_user_id(phone)
+                phone_escaped = phone.replace("'", "''")
+                cursor.execute(
+                    f"SELECT id, unique_id, username, full_name, email, phone, bio, avatar_url, status, last_seen FROM users WHERE phone = '{phone_escaped}'"
+                )
+            elif user_id:
+                cursor.execute(
+                    f"SELECT id, unique_id, username, full_name, email, phone, bio, avatar_url, status, last_seen FROM users WHERE id = {user_id}"
+                )
+            else:
+                return {
+                    'statusCode': 400,
+                    'headers': {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    'isBase64Encoded': False,
+                    'body': json.dumps({'error': 'id or phone parameter required'})
+                }
+            
             user = cursor.fetchone()
             
             if not user:
@@ -77,7 +104,9 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 update_fields.append(f"email = '{email}'")
             if 'phone' in body_data:
                 phone = body_data['phone'].replace("'", "''")
+                unique_id = generate_user_id(phone)
                 update_fields.append(f"phone = '{phone}'")
+                update_fields.append(f"unique_id = '{unique_id}'")
             if 'bio' in body_data:
                 bio = body_data['bio'].replace("'", "''")
                 update_fields.append(f"bio = '{bio}'")
@@ -90,7 +119,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             
             if update_fields:
                 update_fields.append("updated_at = CURRENT_TIMESTAMP")
-                update_query = f"UPDATE users SET {', '.join(update_fields)} WHERE id = {user_id} RETURNING id, username, full_name, email, phone, bio, avatar_url, status"
+                update_query = f"UPDATE users SET {', '.join(update_fields)} WHERE id = {user_id} RETURNING id, unique_id, username, full_name, email, phone, bio, avatar_url, status"
                 
                 cursor.execute(update_query)
                 updated_user = cursor.fetchone()

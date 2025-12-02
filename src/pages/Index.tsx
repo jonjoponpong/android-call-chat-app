@@ -126,7 +126,7 @@ export default function Index() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <img 
-              src="https://cdn.poehali.dev/projects/795edbcb-f9ba-4b65-a66c-842c8382c6cd/files/ac0fda71-1084-406a-9465-7876ace8e0df.jpg" 
+              src="https://cdn.poehali.dev/projects/795edbcb-f9ba-4b65-a66c-842c8382c6cd/files/628b04e1-5982-4426-9126-bd7e556b5801.jpg" 
               alt="СпецСвязь"
               className="h-10 w-10 object-contain"
             />
