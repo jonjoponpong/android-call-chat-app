@@ -1,13 +1,13 @@
 {
   "background_color": "#ffffff",
-  "description": "Poehali.dev — запусти свой сайт за минуту!",
+  "description": "СпецСвязь — Звони свободно!",
   "dir": "ltr",
   "display": "standalone",
-  "name": "android-call-chat-app--preview.poehali",
+  "name": "СпецСвязь",
   "orientation": "any",
   "scope": "/",
-  "short_name": "android-call-chat-app--preview.poehali",
-  "start_url": "/",
+  "short_name": "СпецСвязь",
+  "start_url": "https://android-call-chat-app--preview.poehali.dev/",
   "theme_color": "#ffffff",
   "icons": [
     {
@@ -35,5 +35,6 @@
       "is256x256": false,
       "is192x192": false
     }
-  ]
+  ],
+  "id": "android-call-chat-app--preview.poehali"
 }
