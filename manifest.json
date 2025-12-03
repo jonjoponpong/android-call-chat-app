@@ -1,29 +1,39 @@
 {
-  "name": "СпецСвязь",
-  "short_name": "СпецСвязь",
-  "description": "СпецСвязь - приложение для звонков",
-  "start_url": "/",
-  "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0EA5E9",
-  "orientation": "portrait",
+  "description": "Poehali.dev — запусти свой сайт за минуту!",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "android-call-chat-app--preview.poehali",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "android-call-chat-app--preview.poehali",
+  "start_url": "/",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
+      "src": "https://android-call-chat-app--preview.poehali.dev/favicon.svg",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "isSquare": false,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
     },
     {
-      "src": "https://cdn.poehali.dev/projects/795edbcb-f9ba-4b65-a66c-842c8382c6cd/files/ac0fda71-1084-406a-9465-7876ace8e0df.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
-      "purpose": "any"
+      "src": "https://cdn.poehali.dev/intertnal/img/og.png",
+      "type": "image/png",
+      "sizes": "4800x2520",
+      "isSquare": false,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 4800,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
     }
-  ],
-  "categories": ["social", "communication"],
-  "lang": "ru",
-  "dir": "ltr",
-  "scope": "/",
-  "prefer_related_applications": false
+  ]
 }
