@@ -1,0 +1,29 @@
+{
+  "name": "СпецСвязь",
+  "short_name": "СпецСвязь",
+  "description": "СпецСвязь - приложение для звонков",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0EA5E9",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn.poehali.dev/projects/795edbcb-f9ba-4b65-a66c-842c8382c6cd/files/ac0fda71-1084-406a-9465-7876ace8e0df.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["social", "communication"],
+  "lang": "ru",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
