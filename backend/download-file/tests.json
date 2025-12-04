@@ -1,0 +1,17 @@
+{
+  "tests": [
+    {
+      "name": "Test file download by ID",
+      "method": "GET",
+      "path": "/?file_id=1",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "id": "number",
+        "file_name": "string",
+        "file_type": "string",
+        "file_data": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

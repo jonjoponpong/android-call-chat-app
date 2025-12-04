@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Test user registration",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "username": "testuser",
+        "full_name": "Test User"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "id": "number",
+        "username": "string",
+        "is_new": "boolean"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
